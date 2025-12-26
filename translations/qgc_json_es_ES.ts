@@ -95,14 +95,14 @@
       <extracomment>.mavCmdInfo[MAV_CMD_DO_FENCE_ENABLE].param1.label, </extracomment>
       <location filename="../src/FirmwarePlugin/APM/APM-MavCmdInfoCommon.json"/>
       <source>Enable</source>
-      <translation>Habilitar</translation>
+      <translation>Activar</translation>
     </message>
     <message>
       <extracomment>.mavCmdInfo[MAV_CMD_DO_FENCE_ENABLE].param1.enumStrings, </extracomment>
       <translatorcomment>Only use english comma &apos;,&apos; to separate strings</translatorcomment>
       <location filename="../src/FirmwarePlugin/APM/APM-MavCmdInfoCommon.json"/>
       <source>Enable,Disable</source>
-      <translation>Habilitar,Deshabilitar</translation>
+      <translation>Activar,Desactivar</translation>
     </message>
   </context>
   <context>
@@ -816,7 +816,7 @@
       <translatorcomment>Only use english comma &apos;,&apos; to separate strings</translatorcomment>
       <location filename="../src/MissionManager/MavCmdInfoCommon.json"/>
       <source>Disabled,Opportunistic,Required</source>
-      <translation>Deshabilitado,Oportuno,Requerido</translation>
+      <translation>Desactivado,Oportuno,Requerido</translation>
     </message>
     <message>
       <extracomment>.mavCmdInfo[MAV_CMD_NAV_TAKEOFF].friendlyName, </extracomment>
@@ -895,7 +895,7 @@
       <extracomment>.mavCmdInfo[MAV_CMD_DO_FOLLOW].friendlyName, </extracomment>
       <location filename="../src/MissionManager/MavCmdInfoCommon.json"/>
       <source>Follow Me</source>
-      <translation>Seguir objetivo</translation>
+      <translation>«Sígueme»</translation>
     </message>
     <message>
       <extracomment>.mavCmdInfo[MAV_CMD_DO_FOLLOW_REPOSITION].friendlyName, </extracomment>
@@ -3859,7 +3859,7 @@
       <extracomment>.QGC.MetaData.Facts[forwardMavlink].shortDesc, .QGC.MetaData.Facts[forwardMavlink].longDesc, </extracomment>
       <location filename="../src/Settings/Mavlink.SettingsGroup.json"/>
       <source>Enable mavlink forwarding</source>
-      <translation>Habilitar el reenvío de MAVLink</translation>
+      <translation>Activar el reenvío de MAVLink</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[forwardMavlinkHostName].shortDesc, </extracomment>
@@ -4824,7 +4824,7 @@
       <translatorcomment>Only use english comma &apos;,&apos; to separate strings</translatorcomment>
       <location filename="../src/Settings/App.SettingsGroup.json"/>
       <source>Disabled,Error,Warning,FixMe,Info,Debug,Log,Trace</source>
-      <translation>Deshabilitado,Error,Advertencia,Resolver,Info,Depuración,Registro,Rastro</translation>
+      <translation>Desactivado,Error,Advertencia,Resolver,Info,Depuración,Registro,Rastro</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[useChecklist].shortDesc, </extracomment>
@@ -4854,7 +4854,7 @@
       <extracomment>.QGC.MetaData.Facts[enableMultiVehiclePanel].shortDesc, </extracomment>
       <location filename="../src/Settings/App.SettingsGroup.json"/>
       <source>Enable Multi-Vehicle Panel</source>
-      <translation>Habilitar Panel multivehículo</translation>
+      <translation>Activar Panel multivehículo</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[enableMultiVehiclePanel].longDesc, </extracomment>
@@ -5000,7 +5000,7 @@
       <translatorcomment>Only use english comma &apos;,&apos; to separate strings</translatorcomment>
       <location filename="../src/Settings/App.SettingsGroup.json"/>
       <source>Never,Always,When in Follow Me Flight Mode</source>
-      <translation>Nunca,Siempre,Mientras está activo «Seguir objetivo»</translation>
+      <translation>Nunca,Siempre,Mientras está activo «Sígueme»</translation>
     </message>
     <message>
       <extracomment>.QGC.MetaData.Facts[qLocaleLanguage].shortDesc, </extracomment>
