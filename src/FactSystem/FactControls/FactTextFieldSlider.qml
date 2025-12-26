@@ -7,7 +7,7 @@ import QGroundControl.Controls
 import QGroundControl.FactControls
 
 Rectangle {
-    property alias label:                   factTextField.label
+    property string label
     property alias fact:                    factTextField.fact
     property alias textFieldPreferredWidth: factTextField.textFieldPreferredWidth
     property alias textFieldUnitsLabel:     factTextField.textFieldUnitsLabel
@@ -44,7 +44,6 @@ Rectangle {
 
     Component.onCompleted: {
         _loadComplete = true
-        updateSliderToClampedValue()
     }
 
     Connections {
@@ -66,16 +65,18 @@ Rectangle {
             spacing: ScreenTools.defaultFontPixelWidth
 
             QGCCheckBox {
-                id:         enableCheckbox
-                visible:    control.showEnableCheckbox
+                id:                 enableCheckbox
+                Layout.fillWidth:   visible
+                text:               control.label
+                visible:            control.showEnableCheckbox
 
                 onClicked: control.enableCheckboxClicked()
             }
 
             LabelledFactTextField {
                 id:                 factTextField
-                Layout.fillWidth:   true
-                label:              control.label
+                Layout.fillWidth:   !control.showEnableCheckbox
+                label:              control.showEnableCheckbox ? "" : control.label
                 fact:               control.fact
                 enabled:            !control.showEnableCheckbox || enableCheckbox.checked
             }
@@ -86,6 +87,8 @@ Rectangle {
             Layout.fillWidth:   true
             sourceComponent:    control._showSlider ? sliderComponent : null
             enabled:            !control.showEnableCheckbox || enableCheckbox.checked
+
+            onLoaded: control.updateSliderToClampedValue()
         }
 
         Component {
@@ -96,7 +99,6 @@ Rectangle {
                 Layout.fillWidth:   true
                 from:               control.fact.userMin
                 to:                 control.fact.userMax
-                mouseWheelSupport:  false
                 showBoundaryValues: true
 
                 onMoved: {

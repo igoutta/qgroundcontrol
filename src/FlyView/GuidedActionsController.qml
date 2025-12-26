@@ -15,10 +15,7 @@ import QtPositioning
 import QtQuick.Layouts
 
 import QGroundControl
-
 import QGroundControl.Controls
-
-
 import QGroundControl.FlightMap
 
 /// This provides the smarts behind the guided mode commands, minus the user interface. This way you can change UI
@@ -281,7 +278,8 @@ Item {
             console.log("showStartMission", showStartMission)
         }
         _outputState()
-        if (showStartMission) {
+        if (showStartMission &&
+            _flyViewSettings.enableAutomaticMissionPopups.rawValue) {
             confirmAction(actionStartMission)
         }
     }
@@ -290,7 +288,8 @@ Item {
             console.log("showContinueMission", showContinueMission)
         }
         _outputState()
-        if (showContinueMission) {
+        if (showContinueMission &&
+            _flyViewSettings.enableAutomaticMissionPopups.rawValue) {
             confirmAction(actionContinueMission)
         }
     }

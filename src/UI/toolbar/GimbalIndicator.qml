@@ -13,7 +13,6 @@ import QtQuick.Layouts
 
 import QGroundControl
 import QGroundControl.Controls
-
 import QGroundControl.FactControls
 
 Item {
@@ -271,6 +270,22 @@ Item {
                     fact:       _gimbalControllerSettings.CameraSlideSpeed
                     visible:    enableOnScreenControlCheckbox.checked && _gimbalControllerSettings.ControlType.rawValue === 1
                 }
+            }
+
+            SettingsGroupLayout {
+                heading:        qsTr("Zoom speed")
+                showDividers:   false
+
+                LabelledFactTextField {
+                    label:      qsTr("Max speed (min zoom)")
+                    fact:       _gimbalControllerSettings.zoomMaxSpeed
+                }
+
+                LabelledFactTextField {
+                    label:      qsTr("Min speed (max zoom)")
+                    fact:       _gimbalControllerSettings.zoomMinSpeed
+                }
+
             }
 
             SettingsGroupLayout {
