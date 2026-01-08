@@ -11,23 +11,29 @@
 
 #include "VehicleComponent.h"
 
-class APMCameraComponent : public VehicleComponent
+class Joystick;
+class JoystickManager;
+
+class JoystickComponent : public VehicleComponent
 {
     Q_OBJECT
 
 public:
-    explicit APMCameraComponent(Vehicle *vehicle, AutoPilotPlugin *autopilot, QObject *parent = nullptr);
+    JoystickComponent(Vehicle *vehicle, AutoPilotPlugin *autopilot, QObject *parent = nullptr);
 
     QStringList setupCompleteChangedTriggerList() const final { return QStringList(); }
-
     QString name() const final { return _name; }
-    QString description() const final { return tr("Camera setup is used to adjust camera and gimbal settings."); }
-    QString iconResource() const final { return QStringLiteral("/qmlimages/CameraComponentIcon.png"); }
+    QString description() const final;
+    QString iconResource() const final { return QStringLiteral("/qmlimages/Joystick.png"); }
     bool requiresSetup() const final { return false; }
-    bool setupComplete() const final { return true; }
+    bool setupComplete() const final;
     QUrl setupSource() const final;
-    QUrl summaryQmlSource() const final { return QUrl(); }
+    QUrl summaryQmlSource() const final;
+
+private slots:
+    void _activeJoystickChanged(Joystick *joystick);
 
 private:
-    const QString _name = tr("Camera");
+    const QString _name;
+    Joystick *_activeJoystick = nullptr;
 };
