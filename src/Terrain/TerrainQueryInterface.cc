@@ -1,19 +1,11 @@
-/****************************************************************************
- *
- * (c) 2009-2024 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
 #include "TerrainQueryInterface.h"
 #include "TerrainTileManager.h"
 #include "QGCLoggingCategory.h"
 
 #include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/QNetworkProxy>
 #include <QtPositioning/QGeoCoordinate>
+
+#include "QGCNetworkHelper.h"
 
 QGC_LOGGING_CATEGORY(TerrainQueryInterfaceLog, "Terrain.TerrainQueryInterface")
 
@@ -121,11 +113,7 @@ TerrainOnlineQuery::TerrainOnlineQuery(QObject *parent)
 
     qCDebug(TerrainQueryInterfaceLog) << "supportsSsl" << QSslSocket::supportsSsl() << "sslLibraryBuildVersionString" << QSslSocket::sslLibraryBuildVersionString();
 
-#if defined(Q_OS_ANDROID) || defined(Q_OS_IOS)
-    QNetworkProxy proxy = _networkManager->proxy();
-    proxy.setType(QNetworkProxy::DefaultProxy);
-    _networkManager->setProxy(proxy);
-#endif
+    QGCNetworkHelper::configureProxy(_networkManager);
 }
 
 TerrainOnlineQuery::~TerrainOnlineQuery()

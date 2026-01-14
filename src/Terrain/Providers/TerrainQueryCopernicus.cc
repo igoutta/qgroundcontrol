@@ -1,17 +1,8 @@
-/****************************************************************************
- *
- * (c) 2009-2020 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
 #include "TerrainQueryCopernicus.h"
 #include "TerrainTileCopernicus.h"
 #include "ElevationMapProvider.h"
-#include "QGCFileDownload.h"
 #include "QGCLoggingCategory.h"
+#include "QGCNetworkHelper.h"
 
 #include <QtCore/QJsonArray>
 #include <QtCore/QJsonDocument>
@@ -107,7 +98,7 @@ void TerrainQueryCopernicus::_sendQuery(const QString &path, const QUrlQuery &ur
         return;
     }
 
-    QGCFileDownload::setIgnoreSSLErrorsIfNeeded(*networkReply);
+    QGCNetworkHelper::ignoreSslErrorsIfNeeded(networkReply);
 
     (void) connect(networkReply, &QNetworkReply::finished, this, &TerrainQueryCopernicus::_requestFinished);
     (void) connect(networkReply, &QNetworkReply::sslErrors, this, &TerrainQueryCopernicus::_sslErrors);
